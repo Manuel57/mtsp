@@ -13,7 +13,7 @@ public class GurobiTest {
         }
     }
 
-    static void example4() throws GRBException {
+    private static void example4() throws GRBException {
 
         GRBEnv env = new GRBEnv("example4.log");
         GRBModel model = new GRBModel(env);
@@ -63,9 +63,8 @@ public class GurobiTest {
             model.addConstr(numberd, GRB.EQUAL, nachfrage[v], "Nachfrage" + v);
 
 
-
         }
-        for (int p=0; p < numberOfOffers; p++){
+        for (int p = 0; p < numberOfOffers; p++) {
             open[p].set(GRB.DoubleAttr.Start, 1.0);
         }
 

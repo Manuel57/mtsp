@@ -15,7 +15,7 @@ public class Gurobi {
                 {0, 0, 0, 0, 0, 0, 0, 0}
         };
         try {
-            calculateMaximumOilTransport(8,1,8,capacity,"oil.sol");
+            calculateMaximumOilTransport(8, 1, 8, capacity, "oil.sol");
         } catch (GRBException e) {
             e.printStackTrace();
         }
