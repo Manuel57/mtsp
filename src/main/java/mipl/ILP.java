@@ -12,6 +12,9 @@ interface Func<E extends Integer, T> {
     T execute(E i, E j, E k);
 }
 
+/**
+ * @author Manuel Lackenbucher
+ */
 public class ILP {
 
 

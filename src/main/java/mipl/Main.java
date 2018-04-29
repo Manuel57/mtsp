@@ -4,6 +4,11 @@ import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * main class
+ *
+ * @author Manuel Lackenbucher
+ **/
 public class Main {
     public static void main(String[] args) {
 
