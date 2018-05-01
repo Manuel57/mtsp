@@ -13,7 +13,7 @@ interface Func<E extends Integer, T> {
 }
 
 /**
- * @author Manuel Lackenbucher
+ * @author Manuel Lackenbucher, Lisa Knoblinger, Stefan Jessenitschnig
  */
 public class ILP {
 
