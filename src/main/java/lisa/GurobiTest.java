@@ -14,7 +14,7 @@ public class GurobiTest {
         }
     }
 
-    static void example4() throws GRBException {
+    private static void example4() throws GRBException {
 
         GRBEnv env = new GRBEnv("example4.log");
         GRBModel model = new GRBModel(env);
