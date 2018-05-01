@@ -33,7 +33,7 @@ public class ILP {
     /**
      * array including all grid points and array including all grid points except the base
      */
-    private ArrayList<Integer> gridPoints, gridWithoutbase;
+    private ArrayList<Integer> gridPoints, gridWithoutBase;
     /**
      * the number of drones
      */
@@ -86,6 +86,9 @@ public class ILP {
     private String resultFilename = "result.log";
 
 
+    private MilpMethod method;
+
+
     /**
      * constructor
      *
@@ -97,16 +100,17 @@ public class ILP {
      * @param mnopg      maximum number of grid points each drone is allowed to visit
      * @throws GRBException
      */
-    public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename) throws GRBException {
+    public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename, MilpMethod method) throws GRBException {
         this.env = new GRBEnv(log);
         this.model = new GRBModel(this.env);
         this.nDrones = nDrones;
         this.nGridPoints = gridPoints.size() + 1;
-        this.gridWithoutbase = gridPoints;
+        this.gridWithoutBase = gridPoints;
         this.gridPoints = new ArrayList<>();
-        this.gridPoints.addAll(this.gridWithoutbase);
+        this.gridPoints.addAll(this.gridWithoutBase);
         this.gridPoints.add(startPoint);
         this.base = startPoint;
+        this.method = method;
 
         this.t_ij = t_ij;
         this.maxNumOfGP = mnopg;
@@ -120,19 +124,30 @@ public class ILP {
      */
     public void solveILP() throws GRBException {
         this.initVariables();
-        this.setObjective();
+        if (this.method == MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH) {
+            this.setObjective();
+            this.addMaxVisitsConstraint();
+        } else {
+            this.setObjective2();
+            this.addPathLengthConstraint();
+        }
+
         this.addIngoingConstraint();
         this.addOutgoingConstraint();
         this.addInOutEqualityConstraing();
-        this.addMaxVisitsCOnstraint();
+
         this.addStartConstraint();
         this.addSubtourEliminationConstraint();
         model.update();
 
         this.model.optimize();
         this.model.write(this.resultFilename);
+    }
 
+    private void addPathLengthConstraint() {
+    }
 
+    private void setObjective2() {
     }
 
     /**
@@ -202,7 +217,7 @@ public class ILP {
     private void addInOutConstraint(Func<Integer, GRBVar> f, String direction) throws GRBException {
         GRBLinExpr exp;
 
-        for (int i : this.gridWithoutbase) {
+        for (int i : this.gridWithoutBase) {
             exp = new GRBLinExpr();
             for (int k = 0; k < this.nDrones; k++) {
                 for (int j : gridPoints) {
@@ -243,7 +258,7 @@ public class ILP {
         GRBLinExpr exp;
         for (int k = 0; k < this.nDrones; k++) {
             exp = new GRBLinExpr();
-            for (int i : this.gridWithoutbase) {
+            for (int i : this.gridWithoutBase) {
                 exp.addTerm(1, this.x_ijk[this.base][i][k]);
             }
             this.model.addConstr(exp, GRB.EQUAL, 1, "startdepod_" + k);
@@ -256,17 +271,17 @@ public class ILP {
      *
      * @throws GRBException
      */
-    private void addEndDepotConstraint() throws GRBException {
+/*    private void addEndDepotConstraint() throws GRBException {
         GRBLinExpr expr;
         for (int k = 0; k < nDrones; k++) {
             expr = new GRBLinExpr();
-            for (Integer i : this.gridWithoutbase)
+            for (Integer i : this.gridWithoutBase)
                 expr.addTerm(1, this.x_ijk[i][this.base][k]);
 
             model.addConstr(expr, GRB.EQUAL, 1, "endDepot" + k);
         }
     }
-
+*/
     /**
      * adds constraint - each grid point is entered and left by the same drone
      *
@@ -297,12 +312,12 @@ public class ILP {
      *
      * @throws GRBException
      */
-    private void addMaxVisitsCOnstraint() throws GRBException {
+    private void addMaxVisitsConstraint() throws GRBException {
         GRBLinExpr exp;
         for (int k = 0; k < this.nDrones; k++) {
             exp = new GRBLinExpr();
-            for (int i : this.gridWithoutbase) {
-                for (int j : this.gridWithoutbase) {
+            for (int i : this.gridWithoutBase) {
+                for (int j : this.gridWithoutBase) {
                     if (x_ijk[i][j][k] != null)
                         exp.addTerm(1, this.x_ijk[i][j][k]);
                 }
@@ -320,8 +335,8 @@ public class ILP {
         GRBLinExpr lh;
         GRBLinExpr rh;
 
-        for (Integer i : gridWithoutbase) {
-            for (Integer j : gridWithoutbase) {
+        for (Integer i : gridWithoutBase) {
+            for (Integer j : gridWithoutBase) {
                 if (!i.equals(j)) {
                     lh = new GRBLinExpr();
                     lh.addTerm(1, ui[i]);
@@ -374,7 +389,7 @@ public class ILP {
             t.add(new ArrayList<>());
             for (int i = 0; i < nGridPoints; i++) {
                 for (int j = 0; j < nGridPoints; j++) {
-                    if (this.result[i][j][k] > 0.8) {
+                    if (this.result[i][j][k] >= 1) {
                         t.get(k).add(new Point(i, j));
                     }
                 }

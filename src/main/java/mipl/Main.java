@@ -5,16 +5,18 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * main class
+ * Main class
  *
  * @author Manuel Lackenbucher
  **/
 public class Main {
     public static void main(String[] args) {
 
-        int node = 15;
-        int base = 6;
-        int width = 5;
+        int node = 12;
+        int base = 4;
+        int width = 4;
+        int nDrones = 2;
+        MilpMethod method = MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH;
 
 
         double[][] t_ij = new double[node][node];
@@ -22,22 +24,22 @@ public class Main {
         ArrayList<Integer> grid = new ArrayList<>();
 
 
-        int xdist, ydist;
+        int xDist, yDist;
         for (Integer i = 0; i < node; i++)
             if (i != base)
                 grid.add(i);
 
         for (int i = 0; i < node; i++) {
             for (int j = i + 1; j < node; j++) {
-                xdist = j % width - i % width;
-                ydist = Math.floorDiv(j, width) - Math.floorDiv(i, width);
-                t_ij[i][j] = Math.sqrt(Math.pow(xdist, 2) + Math.pow(ydist, 2));
+                xDist = j % width - i % width;
+                yDist = Math.floorDiv(j, width) - Math.floorDiv(i, width);
+                t_ij[i][j] = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
                 t_ij[j][i] = t_ij[i][j];
             }
         }
 
         try {
-            ILP ilp = new ILP(2, base, grid, t_ij, "ilp.log", (int) Math.ceil((double) node / 2), "result.sol");
+            ILP ilp = new ILP(nDrones, base, grid, t_ij, "ilp.log", (int) Math.ceil((double) node / 2), "result.sol", method);
             ilp.solveILP();
             ilp.setResult();
             ilp.printResult(width);
