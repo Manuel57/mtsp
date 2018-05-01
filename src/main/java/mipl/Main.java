@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        int node = 12;
-        int base = 4;
-        int width = 4;
+        int node = 20;
+        int base = 0;
+        int width = 10;
         int nDrones = 2;
-        MilpMethod method = MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH;
+        MilpMethod method = MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH;
 
 
         double[][] t_ij = new double[node][node];

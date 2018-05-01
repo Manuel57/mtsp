@@ -51,10 +51,10 @@ public class ILP {
      */
     private int maxNumOfGP;
 
-    ///**
-    //  * Gurobi variable for macimum path length of a drone
-    //  */
-    //  private GRBVar c = null;
+    /**
+     * Gurobi variable for macimum path length of a drone
+     */
+    private GRBVar c = null;
 
 
     /**
@@ -144,10 +144,28 @@ public class ILP {
         this.model.write(this.resultFilename);
     }
 
-    private void addPathLengthConstraint() {
+    private void addPathLengthConstraint() throws GRBException {
+        GRBLinExpr exp;
+        for (int k = 0; k < nDrones; k++) {
+            exp = new GRBLinExpr();
+            for (int i = 0; i < nGridPoints; i++) {
+                for (int j = 0; j < nGridPoints; j++) {
+                    if (i != j) {
+                        exp.addTerm(t_ij[i][j], x_ijk[i][j][k]);
+                    }
+                }
+            }
+            this.model.addConstr(exp, GRB.LESS_EQUAL, c, "max_" + k);
+        }
+
+
     }
 
-    private void setObjective2() {
+    private void setObjective2() throws GRBException {
+        GRBLinExpr exp = new GRBLinExpr();
+        exp.addTerm(1, c);
+        this.model.setObjective(exp, GRB.MINIMIZE);
+
     }
 
     /**
@@ -176,7 +194,7 @@ public class ILP {
                 }
             }
         }
-        //this.c = model.addVar(0, Double.POSITIVE_INFINITY, 0, GRB.CONTINUOUS, "c");
+        this.c = model.addVar(0, Double.POSITIVE_INFINITY, 0, GRB.CONTINUOUS, "c");
         this.ui = new GRBVar[this.nGridPoints];
         this.model.update();
         for (int i = 0; i < this.nGridPoints; i++) {
