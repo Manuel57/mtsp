@@ -8,6 +8,7 @@ public class GurobiTest {
 
         try {
             example4();
+           // example5();
         } catch (GRBException e) {
             e.printStackTrace();
         }
@@ -63,9 +64,8 @@ public class GurobiTest {
             model.addConstr(numberd, GRB.EQUAL, nachfrage[v], "Nachfrage" + v);
 
 
-
         }
-        for (int p=0; p < numberOfOffers; p++){
+        for (int p = 0; p < numberOfOffers; p++) {
             open[p].set(GRB.DoubleAttr.Start, 1.0);
         }
 
@@ -76,4 +76,69 @@ public class GurobiTest {
 
 
     }
+
+
+    static void example5() throws GRBException {
+        double[][] cap = new double[][] {
+                {0,3,2,4,0,0,0,0},
+                {0,0,1,0,5,0,0,0},
+                {0,0,0,2,0,6,0,0},
+                {0,0,0,0,0,8,1,0},
+                {0,0,3,0,0,0,0,1},
+                {0,0,0,0,0,0,0,5},
+                {0,0,0,0,0,0,0,3},
+                {0,0,0,0,0,0,0,0}
+        };
+        calculateOilPlan(8,1,8, cap);
+    }
+
+    static void calculateOilPlan(int n, int s, int t, double capacities[][]) throws GRBException {
+        GRBEnv env = new GRBEnv("calculateOilPlan.log");
+        GRBModel model = new GRBModel(env);
+
+        model.set(GRB.StringAttr.ModelName, "oilproblem");
+
+        GRBVar[][] transport = new GRBVar[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                transport[i][j] = model.addVar(0, capacities[i][j], 0, GRB.INTEGER, "Transport " + (i + 1) + "to" + (j + 1));
+            }
+        }
+
+        GRBLinExpr expr = new GRBLinExpr();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                expr.addTerm(1, transport[i][j]);
+            }
+        }
+        model.setObjective(expr, GRB.MAXIMIZE);
+
+        GRBLinExpr expr1;
+        GRBLinExpr expr2;
+
+        for (int i = 0; i < n; i++) {
+            if (i != s - 1 && i != t - 1) {
+                expr1 = new GRBLinExpr();
+                expr2 = new GRBLinExpr();
+                for (int j = 0; j < n; j++) {
+                    expr1.addTerm(1, transport[i][j]);
+                    expr2.addTerm(1, transport[j][i]);
+                }
+                model.addConstr(expr1, GRB.EQUAL, expr2, "equality" + i);
+            }
+        }
+
+        model.optimize();
+
+        int sum=0;
+        for(int i =0; i < n;i++) {
+            sum+= transport[i][t-1].get(GRB.DoubleAttr.X);
+        }
+        System.out.println(sum + " liters oil transported");
+        model.write("calculateOilPlan.sol");
+        model.dispose();
+        env.dispose();
+    }
+
 }
