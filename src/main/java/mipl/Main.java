@@ -23,7 +23,7 @@ public class Main {
 
         ArrayList<Integer> grid = new ArrayList<>();
 
-
+        ä
         int xDist, yDist;
         for (Integer i = 0; i < node; i++)
             if (i != base)
