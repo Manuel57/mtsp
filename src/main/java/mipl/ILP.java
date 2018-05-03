@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,6 +103,8 @@ public class ILP {
      */
     public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename, MilpMethod method) throws GRBException {
         this.env = new GRBEnv(log);
+        //this.env.set(GRB.DoubleParam.TimeLimit,60);
+        // this.env.set(GRB.DoubleParam.MIPGap,2);
         this.model = new GRBModel(this.env);
         this.nDrones = nDrones;
         this.nGridPoints = gridPoints.size() + 1;
@@ -132,6 +135,8 @@ public class ILP {
             this.addPathLengthConstraint();
         }
 
+        //this.addSubtourConstraints();
+
         this.addIngoingConstraint();
         this.addOutgoingConstraint();
         this.addInOutEqualityConstraing();
@@ -139,6 +144,7 @@ public class ILP {
         this.addStartConstraint();
         this.addSubtourEliminationConstraint();
         model.update();
+
 
         this.model.optimize();
         this.model.write(this.resultFilename);
@@ -224,6 +230,42 @@ public class ILP {
         this.model.setObjective(exp, GRB.MINIMIZE);
     }
 
+    private void addSubtourConstraints() throws GRBException {
+
+        GRBLinExpr[] expr2 = new GRBLinExpr[nDrones];
+        GRBLinExpr[] expr3 = new GRBLinExpr[nDrones];
+        int i, j, l;
+
+        for (int ci = 0; ci < nGridPoints - 1; ci++) {
+            i = gridWithoutBase.get(ci);
+
+            for (int cj = ci + 1; cj < nGridPoints - 1; cj++) {
+                j = gridWithoutBase.get(cj);
+                for (int k = 0; k < nDrones; k++) {
+                    expr2[k] = new GRBLinExpr();
+                    expr2[k].addTerm(1, x_ijk[i][j][k]);
+                    expr2[k].addTerm(1, x_ijk[j][i][k]);
+                    model.addConstr(expr2[k], GRB.LESS_EQUAL, 1, "subl2_" + i + "_" + j + "_" + k);
+                }
+
+                for (int cl = cj + 1; cl < nGridPoints - 1; cl++) {
+                    l = gridWithoutBase.get(cl);
+                    for (int k = 0; k < nDrones; k++) {
+                        expr3[k] = new GRBLinExpr();
+                        expr3[k].add(expr2[k]);
+                        expr3[k].addTerm(1, x_ijk[i][l][k]);
+                        expr3[k].addTerm(1, x_ijk[l][i][k]);
+                        expr3[k].addTerm(1, x_ijk[j][l][k]);
+                        expr3[k].addTerm(1, x_ijk[l][j][k]);
+                        model.addConstr(expr3[k], GRB.LESS_EQUAL, 2, "subl3_" + i + "_" + j + "_" + l + "_" + k);
+                    }
+
+                }
+            }
+
+        }
+    }
+
 
     /**
      * add the constraint that each grid point has exactly one ingoing and one outgoing edge
@@ -295,7 +337,6 @@ public class ILP {
             expr = new GRBLinExpr();
             for (Integer i : this.gridWithoutBase)
                 expr.addTerm(1, this.x_ijk[i][this.base][k]);
-
             model.addConstr(expr, GRB.EQUAL, 1, "endDepot" + k);
         }
     }
@@ -419,7 +460,7 @@ public class ILP {
             ArrayList<Point> l = t.get(k);
             ArrayList<Point> tt = new ArrayList<>();
 
-            Point m = l.get(0);
+            Point m = (Point) l.stream().filter((el) -> el.i == this.base).toArray()[0];
             tt.add(m);
 
             while (!l.isEmpty()) {
@@ -437,15 +478,25 @@ public class ILP {
         }
 
         this.tours = new ArrayList<>();
+        String s = "";
         for (int k = 0; k < nDrones; k++) {
             ArrayList<Integer> al = new ArrayList<>();
+            s += String.format("Tour %d%n---------------------%n", k);
             System.out.format("Tour %d%n---------------------%n", k);
             for (Point p : tour.get(k)) {
                 al.add(p.i);
                 System.out.format("From %d to %d%n", p.i, p.j);
+                s += String.format("From %d to %d%n", p.i, p.j);
             }
             this.tours.add(al);
             System.out.println();
+            s += String.format("%n \n");
+        }
+
+        try (FileWriter file = new FileWriter("result_" + this.nDrones + "_" + this.nGridPoints + "_" + width + "_" + this.base + "_" + this.method + ".txt")) {
+            file.write(s);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
@@ -477,7 +528,7 @@ public class ILP {
             JSONObject o = new JSONObject();
             o.put("Tours", obj);
 
-            try (FileWriter file = new FileWriter(filename)) {
+            try (FileWriter file = new FileWriter("js_" + this.nDrones + "_" + this.nGridPoints + "_" + width + "_" + this.base + "_" + this.method + ".js")) {
                 file.write("var tours=");
                 file.write(o.toJSONString());
                 System.out.println("Successfully Copied JSON Object to File...");
