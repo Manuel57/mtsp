@@ -35,16 +35,19 @@ public class Utility {
 
                 JSONArray tours = ((JSONArray) o.get("Tours"));
 
-                int base = Integer.parseInt(((JSONArray) tours.get(0)).get(0).toString());
+                String m = f.getName().split("_")[6];
 
                 int method = -1;
-                String m = f.getName().split("_")[5].split(".")[0];
-                if (m.equals("MINIMIZE_MAXIMUM_PATH_LENGTH"))
+                if (m.equals("MAXIMUM"))
                     method = 1;
                 else
                     method = 0;
 
-                bw.print(Integer.parseInt((String) o.get("numberOfPoints").toString()) / Integer.parseInt((String) o.get("width").toString()) + "x" + o.get("width"));
+                int base = Integer.parseInt(((JSONArray) tours.get(0)).get(0).toString());
+                int width = Integer.parseInt(o.get("width").toString());
+                int nNodes = (Integer.parseInt((String) o.get("numberOfPoints").toString()));
+
+                bw.print((nNodes / width) + "x" + o.get("width"));
                 bw.print(";" + tours.size() + ";" + base + ";" + method + ";" + tours.toJSONString());
                 bw.println();
             }
