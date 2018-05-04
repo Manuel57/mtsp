@@ -43,7 +43,7 @@ public class Utility {
                 else
                     method = 0;
 
-                int base = Integer.parseInt(((JSONArray) tours.get(0)).get(0).toString());
+                int base = Integer.parseInt(f.getName().split("_")[4]);//((JSONArray) tours.get(0)).get(0).toString());
                 int width = Integer.parseInt(o.get("width").toString());
                 int nNodes = (Integer.parseInt((String) o.get("numberOfPoints").toString()));
 
@@ -110,7 +110,7 @@ public class Utility {
                 else
                     method = 0;
 
-                int base = Integer.parseInt(((JSONArray) tours.get(0)).get(0).toString());
+                int base = Integer.parseInt(f.getName().split("_")[4]);//((JSONArray) tours.get(0)).get(0).toString());
                 int width = Integer.parseInt(o.get("width").toString());
                 int nNodes = (Integer.parseInt((String) o.get("numberOfPoints").toString()));
 
