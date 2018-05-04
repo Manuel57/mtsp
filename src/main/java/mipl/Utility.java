@@ -157,8 +157,8 @@ public class Utility {
 
         bw.close();
     }
-	
-	private static void execute(String jsFilename) {
+
+    private static void execute(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
 		double[][] t_ij = new double[node][node];
 
         ArrayList<Integer> grid = new ArrayList<>();
@@ -193,7 +193,7 @@ public class Utility {
    }
 	
     public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method) {
-	     execute( node,  base,  width,  nDrones,  method,  "js_" + nDrones + "_" + node + "_" + width + "_" + base + "_" + method + ".js");
+        execute(node, base, width, nDrones, method, "js_" + nDrones + "_" + node + "_" + width + "_" + base + "_" + method + ".js");
     }
 
     public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
