@@ -92,8 +92,6 @@ public class ILP {
 
 
     private MilpMethod method;
-    
-    
 
 
     /**
@@ -109,7 +107,7 @@ public class ILP {
      */
     public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename, MilpMethod method) throws GRBException {
         this.env = new GRBEnv(log);
-        this.env.set(GRB.DoubleParam.TimeLimit,DEFAULT_TIMEOUT);
+        this.env.set(GRB.DoubleParam.TimeLimit, DEFAULT_TIMEOUT);
         // this.env.set(GRB.DoubleParam.MIPGap,2);
         this.model = new GRBModel(this.env);
         this.nDrones = nDrones;
