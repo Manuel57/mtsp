@@ -20,6 +20,10 @@ public class ILP {
 
 
     /**
+     * default timeout of 5 hours
+     */
+    private final static int DEFAULT_TIMEOUT = 60 * 60 * 5;
+    /**
      * the Gurobi environment variable
      */
     private GRBEnv env;
@@ -88,6 +92,8 @@ public class ILP {
 
 
     private MilpMethod method;
+    
+    
 
 
     /**
@@ -103,7 +109,7 @@ public class ILP {
      */
     public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename, MilpMethod method) throws GRBException {
         this.env = new GRBEnv(log);
-        //this.env.set(GRB.DoubleParam.TimeLimit,60);
+        this.env.set(GRB.DoubleParam.TimeLimit,DEFAULT_TIMEOUT);
         // this.env.set(GRB.DoubleParam.MIPGap,2);
         this.model = new GRBModel(this.env);
         this.nDrones = nDrones;
