@@ -157,9 +157,9 @@ public class Utility {
 
         bw.close();
     }
-
-    public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
-        double[][] t_ij = new double[node][node];
+	
+	private static void execute(String jsFilename) {
+		double[][] t_ij = new double[node][node];
 
         ArrayList<Integer> grid = new ArrayList<>();
 
@@ -190,6 +190,14 @@ public class Utility {
         } catch (Exception e) {
             e.printStackTrace();
         }
+   }
+	
+    public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method) {
+	     execute( node,  base,  width,  nDrones,  method,  "js_" + nDrones + "_" + node + "_" + width + "_" + base + "_" + method + ".js");
+    }
+
+    public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
+        execute( node,  base,  width,  nDrones,  method,  jsFilename);
     }
 
 
