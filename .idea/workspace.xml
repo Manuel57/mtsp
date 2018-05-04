@@ -1,77 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a97e6d67-3806-4cae-b97e-ea9aa9c71a04" name="Default" comment="added javadoc">
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/Main.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/allclasses-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/allclasses-noframe.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/class-use/Main.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/constant-values.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/deprecated-list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/help-doc.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-10.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-11.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-12.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-13.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-14.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-15.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-16.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-17.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-18.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-7.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-8.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-9.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/lisa/GurobiTest.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/lisa/class-use/GurobiTest.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/lisa/package-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/lisa/package-summary.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/lisa/package-tree.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/lisa/package-use.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/manuel/Gurobi.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/manuel/class-use/Gurobi.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/manuel/package-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/manuel/package-summary.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/manuel/package-tree.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/manuel/package-use.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/Func.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/ILP.Point.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/ILP.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/Main.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/class-use/Func.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/class-use/ILP.Point.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/class-use/ILP.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/class-use/Main.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/package-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/package-summary.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/package-tree.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/mipl/package-use.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/overview-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/overview-summary.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/overview-tree.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/package-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/package-list" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/package-summary.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/package-tree.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/package-use.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/script.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stefan/GurobiTest.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stefan/class-use/GurobiTest.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stefan/package-frame.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stefan/package-summary.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stefan/package-tree.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stefan/package-use.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/doc/stylesheet.css" />
+    <list default="true" id="a97e6d67-3806-4cae-b97e-ea9aa9c71a04" name="Default" comment="added authors">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mipl/ILP.java" afterPath="$PROJECT_DIR$/src/main/java/mipl/ILP.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mipl/Main.java" afterPath="$PROJECT_DIR$/src/main/java/mipl/Main.java" />
+      <change beforePath="$PROJECT_DIR$/GurobiIntroduction.iml" afterPath="$PROJECT_DIR$/GurobiIntroduction.iml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/values.js" afterPath="$PROJECT_DIR$/values.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -83,12 +21,22 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/doc/stylesheet.css">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mipl/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+            <state relative-caret-position="225">
+              <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ILP.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mipl/ILP.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -132,15 +80,15 @@
         <option value="$USER_HOME$/Desktop/Neuer Ordner/draw.html" />
         <option value="$PROJECT_DIR$/src/mipl/Main.java" />
         <option value="$PROJECT_DIR$/src/mipl/ILP.java" />
-        <option value="$USER_HOME$/.m2/settings.xml" />
         <option value="$PROJECT_DIR$/values.json" />
         <option value="$PROJECT_DIR$/html/draw.html" />
         <option value="$PROJECT_DIR$/html/draw.js" />
         <option value="$PROJECT_DIR$/values.js" />
         <option value="$PROJECT_DIR$/src/main/java/lisa/GurobiTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/mipl/Main.java" />
+        <option value="$USER_HOME$/.m2/settings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/mipl/ILP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mipl/Main.java" />
       </list>
     </option>
   </component>
@@ -157,11 +105,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="461" />
+    <option name="y" value="24" />
+    <option name="width" value="979" />
+    <option name="height" value="812" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -178,61 +126,64 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="GurobiIntroduction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GurobiIntroduction" type="462c0819:PsiDirectoryNode" />
+              <item name="mtsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtsp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="GurobiIntroduction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GurobiIntroduction" type="462c0819:PsiDirectoryNode" />
+              <item name="mtsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtsp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="GurobiIntroduction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GurobiIntroduction" type="462c0819:PsiDirectoryNode" />
+              <item name="mtsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtsp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="GurobiIntroduction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GurobiIntroduction" type="462c0819:PsiDirectoryNode" />
+              <item name="mtsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtsp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="GurobiIntroduction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GurobiIntroduction" type="462c0819:PsiDirectoryNode" />
+              <item name="mtsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtsp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mipl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="GurobiIntroduction" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GurobiIntroduction" type="462c0819:PsiDirectoryNode" />
+              <item name="mtsp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mtsp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mipl" type="462c0819:PsiDirectoryNode" />
+              <item name="ILP.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/gurobi752/win32/lib/gurobi.jar!/" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -411,6 +362,8 @@
       <updated>1523348553365</updated>
       <workItem from="1523348557918" duration="1801000" />
       <workItem from="1524662258825" duration="26900000" />
+      <workItem from="1525205897762" duration="336000" />
+      <workItem from="1525430456104" duration="506000" />
     </task>
     <task id="LOCAL-00001" summary="added main method">
       <created>1523349355825</created>
@@ -461,19 +414,31 @@
       <option name="project" value="LOCAL" />
       <updated>1525025949531</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added authors">
+      <created>1525177997439</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525177997439</updated>
+    </task>
+    <task id="LOCAL-00009" summary="updated milp v2">
+      <created>1525182733298</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1525182733298</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49459000" />
+    <option name="totallyTimeSpent" value="55176000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2278" height="1466" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294753" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -484,9 +449,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1391844" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17916666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36496913" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -497,7 +461,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294753" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36496913" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,7 +483,9 @@
     <MESSAGE value="updated pom" />
     <MESSAGE value="added gurobi jar as dependancy" />
     <MESSAGE value="added javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="added javadoc" />
+    <MESSAGE value="updated milp v2" />
+    <MESSAGE value="added authors" />
+    <option name="LAST_COMMIT_MESSAGE" value="added authors" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -528,11 +496,36 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/example4.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/calculateOilPlan.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="8" lean-forward="false" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
+    <entry file="file://$PROJECT_DIR$/example4.sol">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lisa/GurobiTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/lisa/GurobiTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -540,7 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -552,19 +544,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mipl/Strategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mipl/Strategy.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/manuel/Gurobi.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1400">
           <caret line="56" column="9" lean-forward="false" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -576,14 +560,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/result.sol" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
@@ -596,7 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -604,7 +580,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,191 +587,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oil.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/gurobi752/win32/lib/gurobi.jar!/gurobi/GRBVar.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="88" column="20" lean-forward="true" selection-start-line="88" selection-start-column="20" selection-end-line="88" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hs_err_pid9844.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="69" lean-forward="false" selection-start-line="14" selection-start-column="69" selection-end-line="14" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hs_err_pid10552.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hs_err_pid14252.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/HeapImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-625">
-          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/HeapImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-645">
-          <caret line="13" column="45" lean-forward="true" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/SortedListImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2550">
-          <caret line="6" column="2" lean-forward="true" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/QuickSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/HeapImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3420">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/AB1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mipl/Strategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/solution5.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/result1.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/gurobi752/win32/lib/gurobi.jar!/gurobi/GRBModel.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="1520" column="5" lean-forward="true" selection-start-line="1520" selection-start-column="5" selection-end-line="1520" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Neuer Ordner/draw.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="28" column="35" lean-forward="false" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="48" column="14" lean-forward="false" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.m2/settings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="85" lean-forward="true" selection-start-line="0" selection-start-column="85" selection-end-line="0" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/values.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="9" lean-forward="false" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/something/Neuer Ordner/index_orig.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/result.sol">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10014">
-          <caret line="13" column="9" lean-forward="false" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/oil.log" />
+    <entry file="jar://C:/gurobi752/win32/lib/gurobi.jar!/gurobi/GRBVar.class" />
+    <entry file="file://$PROJECT_DIR$/hs_err_pid9844.log" />
+    <entry file="file://$PROJECT_DIR$/hs_err_pid10552.log" />
+    <entry file="file://$PROJECT_DIR$/hs_err_pid14252.log" />
+    <entry file="file://$USER_HOME$/Downloads/HeapImpl.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/HeapImpl.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/SortedListImpl.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/QuickSort.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/HeapImpl.java" />
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_LackenbucherWienerJaeger.zip/src/ab1/impl/LackenbucherJaegerWiener/AB1.java" />
+    <entry file="file://$PROJECT_DIR$/src/mipl/Strategy.java" />
+    <entry file="file://$PROJECT_DIR$/solution5.sol" />
+    <entry file="file://$PROJECT_DIR$/result1.sol" />
+    <entry file="jar://C:/gurobi752/win32/lib/gurobi.jar!/gurobi/GRBModel.class" />
+    <entry file="file://$USER_HOME$/Desktop/Neuer Ordner/draw.html" />
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_131/src.zip!/java/util/function/Function.java" />
+    <entry file="file://$PROJECT_DIR$/out.txt" />
+    <entry file="file://$PROJECT_DIR$/values.json" />
+    <entry file="file://$USER_HOME$/Desktop/something/Neuer Ordner/index_orig.html" />
+    <entry file="file://$PROJECT_DIR$/result.sol" />
     <entry file="file://$PROJECT_DIR$/html/draw.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,7 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="41" lean-forward="false" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,7 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="35" column="43" lean-forward="false" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,34 +655,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mipl/Main.java">
+    <entry file="file://$PROJECT_DIR$/doc/stylesheet.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-300">
-          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding />
+        <state relative-caret-position="475">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mipl/ILP.java">
+    <entry file="file://$USER_HOME$/.m2/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        <state relative-caret-position="75">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="28" column="17" lean-forward="false" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+        <state relative-caret-position="259">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doc/stylesheet.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mipl/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state relative-caret-position="225">
+          <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mipl/ILP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -912,7 +734,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>9.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -937,7 +759,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.googlecode.json-simple:json-simple:1.1.1</last-edited>
+          <last-edited>Maven: junit:junit:4.10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

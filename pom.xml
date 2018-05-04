@@ -20,7 +20,7 @@
             <artifactId>gurobi</artifactId>
             <scope>system</scope>
             <version>1.0</version>
-            <systemPath>C:/gurobi752/win32/lib/gurobi.jar</systemPath>
+            <systemPath>/Library/gurobi752/mac64/lib/gurobi.jar</systemPath>
         </dependency>
 
     </dependencies>
