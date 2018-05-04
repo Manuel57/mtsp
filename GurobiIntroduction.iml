@@ -17,7 +17,7 @@
     <orderEntry type="module-library">
       <library name="Maven: gurobi:gurobi:1.0">
         <CLASSES>
-          <root url="jar://C:/gurobi752/win32/lib/gurobi.jar!/" />
+          <root url="jar:///Library/gurobi752/mac64/lib/gurobi.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

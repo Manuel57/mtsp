@@ -20,6 +20,10 @@ public class ILP {
 
 
     /**
+     * default timeout of 5 hours
+     */
+    private final static int DEFAULT_TIMEOUT = 60 * 60 * 5;
+    /**
      * the Gurobi environment variable
      */
     private GRBEnv env;
@@ -103,7 +107,7 @@ public class ILP {
      */
     public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename, MilpMethod method) throws GRBException {
         this.env = new GRBEnv(log);
-        //this.env.set(GRB.DoubleParam.TimeLimit,60);
+        this.env.set(GRB.DoubleParam.TimeLimit, DEFAULT_TIMEOUT);
         // this.env.set(GRB.DoubleParam.MIPGap,2);
         this.model = new GRBModel(this.env);
         this.nDrones = nDrones;
@@ -528,7 +532,7 @@ public class ILP {
             JSONObject o = new JSONObject();
             o.put("Tours", obj);
 
-            try (FileWriter file = new FileWriter("js_" + this.nDrones + "_" + this.nGridPoints + "_" + width + "_" + this.base + "_" + this.method + ".js")) {
+            try (FileWriter file = new FileWriter(filename)) {
                 file.write("var tours=");
                 file.write(o.toJSONString());
                 System.out.println("Successfully Copied JSON Object to File...");

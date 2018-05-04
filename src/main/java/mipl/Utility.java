@@ -158,8 +158,8 @@ public class Utility {
         bw.close();
     }
 
-    public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
-        double[][] t_ij = new double[node][node];
+    private static void execute(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
+		double[][] t_ij = new double[node][node];
 
         ArrayList<Integer> grid = new ArrayList<>();
 
@@ -190,6 +190,14 @@ public class Utility {
         } catch (Exception e) {
             e.printStackTrace();
         }
+   }
+	
+    public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method) {
+        execute(node, base, width, nDrones, method, "js_" + nDrones + "_" + node + "_" + width + "_" + base + "_" + method + ".js");
+    }
+
+    public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
+        execute( node,  base,  width,  nDrones,  method,  jsFilename);
     }
 
 
@@ -203,5 +211,41 @@ public class Utility {
                 return true;
         }*/
         return false;
+    }
+    
+    
+    public static void process(String inputFilename) throws Exception {
+         ArrayList<ExecutionDetails> executions = readInputFile(inputFilename);
+           MilpMethod m;
+          for(ExecutionDetails ed : executions) {
+              m = (ed.getMethod() == 1 ? MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH : MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH);
+              executeMilp(ed.getNubferOfNodes(), ed.getBase(),ed.getWidth(), ed.getNubferOfDrones(), m, ed.generateJsFileName());
+          }
+    }
+        
+    
+    
+    public static ArrayList<ExecutionDetails> readInputFile(String inputFilename) throws Exception {
+        ArrayList<ExecutionDetails> executions = new ArrayList<ExecutionDetails>();
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFilename))) {
+           String currentLine;
+
+            int base;
+            int nDrones; 
+            int nPoints;
+            int method;
+            int width;
+            
+			while ((currentLine = br.readLine()) != null) {
+                String[] in = currentLine.split(",");
+                nPoints = Integer.parseInt(in[0]);
+                nDrones = Integer.parseInt(in[1]);
+                base = Integer.parseInt(in[2]);
+                width = Integer.parseInt(in[3]);
+                method = Integer.parseInt(in[4]);
+                executions.add(new ExecutionDetails(base,nDrones,nPoints,method,width));
+			}
+        }
+        return executions;
     }
 }

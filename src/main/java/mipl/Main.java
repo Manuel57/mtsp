@@ -9,11 +9,13 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+            Utility.process("input.txt");
+            
             // calculateTours();  //  berechnen
 
             Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
 
-            // Utility.convertJsToLatex(); // in latex zeichnen
+            Utility.convertJsToLatex(); // in latex zeichnen
 
         } catch (Exception e) {
             e.printStackTrace();
