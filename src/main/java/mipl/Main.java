@@ -11,7 +11,7 @@ public class Main {
         try {
             // calculateTours();  //  berechnen
 
-            // Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
+            Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
 
             // Utility.convertJsToLatex(); // in latex zeichnen
 
