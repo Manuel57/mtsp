@@ -534,7 +534,7 @@ public class ILP {
             JSONObject o = new JSONObject();
             o.put("Tours", obj);
 
-            try (FileWriter file = new FileWriter("js_" + this.nDrones + "_" + this.nGridPoints + "_" + width + "_" + this.base + "_" + this.method + ".js")) {
+            try (FileWriter file = new FileWriter(filename)) {
                 file.write("var tours=");
                 file.write(o.toJSONString());
                 System.out.println("Successfully Copied JSON Object to File...");
