@@ -77,6 +77,7 @@ public class Utility {
                 "\\usetikzlibrary{calc,patterns,decorations.markings}\n" +
                 "\\usepackage{pdflscape}\n" +
                 "\\usepackage{tikzscale}\n" +
+                "\\usepackage{morefloats}\n" +
                 "\\usepackage{filecontents}\n" +
                 "\\setlength{\\bibsep}{0.0pt}\n" +
                 "\\usepackage[textsize=tiny]{todonotes}\n" +
@@ -84,6 +85,7 @@ public class Utility {
                 "\\usepackage{pgf}\n" +
                 "\\usepackage{graphics}\n" +
                 "\\usepackage[margin=1in]{geometry}\n" +
+                "\\maxdeadcycles=1000\n" +
                 "\\usetikzlibrary{arrows,automata}\n" +
                 " %to enable backgrounds in tikz graphics -> edges do not overlay vertices\n" +
                 "\\usetikzlibrary{backgrounds}\n" +
@@ -94,9 +96,10 @@ public class Utility {
                 "\n" +
                 "\\begin{document}");
 
+        int cntFigures = 1;
         for (File f : dir.listFiles()) {
             if (f.getName().endsWith(".js") && !f.getName().equals("values.js")) {
-
+                System.out.println(f.getName());
                 JSONObject o = readTours(f);
 
                 JSONArray tours = ((JSONArray) o.get("Tours"));
@@ -115,9 +118,9 @@ public class Utility {
                 int nNodes = (Integer.parseInt((String) o.get("numberOfPoints").toString()));
 
                 ArrayList<ArrayList<Integer>> pointsAtHeight = new ArrayList<>();
-                bw.println("\\begin{figure}[htp]");
-                bw.println("\\begin{center}");
-                bw.println("\\resizebox{\\ifdim\\width>\\linewidth.9\\linewidth\\else\\width\\fi}{!}{\n" +
+                bw.println("\\begin{figure}[htp]\n" +
+                        "\\begin{center}\n" +
+                        "\\resizebox{\\ifdim\\width>\\linewidth.9\\linewidth\\else\\width\\fi}{!}{\n" +
                         "\\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]\n" +
                         "  \\tikzstyle{every circle}=[fill=white,fill opacity=.85,draw=black,text=black,text opacity=1]");
 
@@ -148,9 +151,13 @@ public class Utility {
                     bw.println(";");
                     cnt++;
                 }
-                bw.println("\\end{pgfonlayer}");
-                bw.format("\\end{tikzpicture} } \\caption[drones503]{drones %d method %d vertices %d base %d } \\label{drones %d method %d vertices %d base %d}\n \\end{center} \\end{figure}%n", tours.size(), method, nNodes, base, tours.size(), method, nNodes, base);
+                bw.println("  \\end{pgfonlayer}\\end{tikzpicture}\n" +
+                        "}\n");
+                bw.format("\\caption[drones503]{drones %d method %d vertices %d base %d }%n\\label{drones %d method %d vertices %d base %d}%n\\end{center}%n\\end{figure}%n%n", tours.size(), method, nNodes, base, tours.size(), method, nNodes, base);
 
+                if (cntFigures % 35 == 0)
+                    bw.println("\\clearpage");
+                cntFigures++;
             }
         }
         bw.println("\\end{document}");
