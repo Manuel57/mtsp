@@ -345,6 +345,7 @@ public class ILP {
         }
     }
 */
+
     /**
      * adds constraint - each grid point is entered and left by the same drone
      *
@@ -381,11 +382,11 @@ public class ILP {
             exp = new GRBLinExpr();
             for (int i : this.gridWithoutBase) {
                 for (int j : this.gridWithoutBase) {
-                    if (x_ijk[i][j][k] != null)
+                    if (i != j)
                         exp.addTerm(1, this.x_ijk[i][j][k]);
                 }
-                this.model.addConstr(exp, GRB.LESS_EQUAL, this.maxNumOfGP, "maxNumberVisitations_" + k);
             }
+            this.model.addConstr(exp, GRB.LESS_EQUAL, this.maxNumOfGP - 1, "maxNumberVisitations_" + k);
         }
     }
 
