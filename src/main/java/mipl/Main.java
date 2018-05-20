@@ -9,15 +9,17 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            Utility.process("input.txt");
-            // Utility.executeMilp(9,0,3,2,MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH,"new.js");
+            //Utility.process("input.txt");
+            Utility.executeMilp(24, 0, 6, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "new1.js");
 
             // calculateTours();  //  berechnen
 
             //Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
 
-            //Utility.convertResultFilesToLatex("resultsTex1.txt");
-            //Utility.convertJsToLatex(); // in latex zeichnen
+            // Utility.convertResultFilesToLatex("resultsTexNew.txt");
+            //Utility.convertJsToLatex("newone.txt"); // in latex zeichnen
+
+
 
 
             // !!!!!! NACHFOLGENDES EINFACH IGNORIEREN !!!!!!!!

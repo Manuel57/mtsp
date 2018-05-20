@@ -1,1 +1,1 @@
-var tours = {"Tours": {"width": 5, "numberOfPoints": 10, "Tours": [[0, 7, 8, 9, 4, 3, 2, 0], [0, 5, 6, 1, 0]]}}
+var tours = {"Tours": {"width": 3, "numberOfPoints": 9, "Tours": [[0, 1, 2, 5, 8, 7, 6, 0], [0, 3, 4, 0]]}}

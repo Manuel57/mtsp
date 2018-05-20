@@ -172,10 +172,10 @@ public class Utility {
     }
 
 
-    public static void convertJsToLatex() throws IOException, ParseException {
+    public static void convertJsToLatex(String filename) throws IOException, ParseException {
         String[] colors = new String[]{"blue", "red", "green", "orange", "yellow"};
         File dir = new File("./files");
-        PrintWriter bw = new PrintWriter(new FileWriter("test111.txt"));
+        PrintWriter bw = new PrintWriter(new FileWriter(filename));
         bw.println("\\documentclass{article}\n" +
                 "\n" +
                 "\\usepackage{times}\n" +
