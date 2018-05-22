@@ -131,12 +131,19 @@ public class ILP {
      */
     public void solveILP() throws GRBException {
         this.initVariables();
-        if (this.method == MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH) {
-            this.setObjective();
-            this.addMaxVisitsConstraint();
-        } else {
-            this.setObjective2();
-            this.addPathLengthConstraint();
+        switch (this.method) {
+            case MINIMIZE_TOTAL_PATH_LENGTH:
+                this.setObjective();
+                this.addMaxVisitsConstraint();
+                break;
+            case MINIMIZE_MAXIMUM_PATH_LENGTH:
+                this.setObjective2();
+                this.addPathLengthConstraint();
+                break;
+            case MINIMIZE_MAXIMUMTOTAL_PATH_LENGTH:
+                this.setObjective3();
+                this.addPathLengthConstraint();
+                break;
         }
 
         //this.addSubtourConstraints();
@@ -232,6 +239,22 @@ public class ILP {
             }
         }
         this.model.setObjective(exp, GRB.MINIMIZE);
+    }
+
+    private void setObjective3() throws GRBException {
+        GRBLinExpr exp = new GRBLinExpr();
+        exp.addTerm(10, c);
+        for (int k = 0; k < this.nDrones; k++) {
+            for (int i : gridPoints) {
+                for (int j : gridPoints) {
+                    if (i != j) {
+                        exp.addTerm(this.t_ij[i][j], this.x_ijk[i][j][k]);
+                    }
+                }
+            }
+        }
+        this.model.setObjective(exp, GRB.MINIMIZE);
+
     }
 
     private void addSubtourConstraints() throws GRBException {

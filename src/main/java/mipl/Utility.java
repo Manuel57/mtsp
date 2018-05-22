@@ -79,13 +79,9 @@ public class Utility {
 
                 JSONArray tours = ((JSONArray) o.get("Tours"));
 
-                String m = f.getName().split("_")[6];
+                //String m = f.getName().split("_")[6];
 
-                int method = -1;
-                if (m.equals("MAXIMUM"))
-                    method = 1;
-                else
-                    method = 0;
+                int method = getMethod(f.getName());
 
                 int base = Integer.parseInt(f.getName().split("_")[4]);//((JSONArray) tours.get(0)).get(0).toString());
                 int width = Integer.parseInt(o.get("width").toString());
@@ -97,7 +93,21 @@ public class Utility {
             }
         }
         bw.close();
+
     }
+
+    public static int getMethod(String fName) {
+        int method = -1;
+        String m = fName.split("_")[6];
+        if (m.equalsIgnoreCase("MAXIMUM"))
+            method = 1;
+        else if (m.equalsIgnoreCase("MAXIMUMTOTAL"))
+            method = 2;
+        else
+            method = 0;
+        return method;
+    }
+
 
     public static void convertResultFilesToLatex(String fileName) throws IOException, ParseException {
         File dir = new File("./files");
@@ -140,20 +150,15 @@ public class Utility {
 
 
         File[] files = getFilesSorted(dir);
-
         for (File f : files) {
-            if (f.getName().endsWith(".js") && !f.getName().equals("values.js")) {
+            if (f.getName().endsWith(".js") && f.getName().startsWith("js_")) {
                 JSONObject o = readTours(f);
 
                 JSONArray tours = ((JSONArray) o.get("Tours"));
 
-                String m = f.getName().split("_")[6];
+                //String m = f.getName().split("_")[6];
 
-                int method = -1;
-                if (m.equals("MAXIMUM"))
-                    method = 1;
-                else
-                    method = 0;
+                int method = getMethod(f.getName());
 
                 int base = Integer.parseInt(f.getName().split("_")[4]);//((JSONArray) tours.get(0)).get(0).toString());
                 int width = Integer.parseInt(o.get("width").toString());
@@ -225,63 +230,59 @@ public class Utility {
 
 
                 //-----------------
-                String m = f.getName().split("_")[6];
+                //String m = f.getName().split("_")[6];
 
-                int method = -1;
-                if (m.equals("MAXIMUM"))
-                    method = 1;
-                else
-                    method = 0;
+                int method = getMethod(f.getName());
 
-                if (method == 1) {
-                    int base = Integer.parseInt(f.getName().split("_")[4]);//((JSONArray) tours.get(0)).get(0).toString());
-                    int width = Integer.parseInt(o.get("width").toString());
-                    int nNodes = (Integer.parseInt((String) o.get("numberOfPoints").toString()));
+                int base = Integer.parseInt(f.getName().split("_")[4]);//((JSONArray) tours.get(0)).get(0).toString());
+                int width = Integer.parseInt(o.get("width").toString());
+                int nNodes = (Integer.parseInt((String) o.get("numberOfPoints").toString()));
 
-                    ArrayList<ArrayList<Integer>> pointsAtHeight = new ArrayList<>();
-                    bw.println("\\begin{figure}[htp]\n" +
-                            "\\begin{center}\n" +
-                            "\\resizebox{\\ifdim\\width>\\linewidth.9\\linewidth\\else\\width\\fi}{!}{\n" +
-                            "\\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]\n" +
-                            "  \\tikzstyle{every circle}=[fill=white,fill opacity=.85,draw=black,text=black,text opacity=1]");
+                ArrayList<ArrayList<Integer>> pointsAtHeight = new ArrayList<>();
+                bw.println("\\begin{figure}[htp]\n" +
+                        "\\begin{center}\n" +
+                        "\\resizebox{\\ifdim\\width>\\linewidth.9\\linewidth\\else\\width\\fi}{!}{\n" +
+                        "\\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.5cm,semithick]\n" +
+                        "  \\tikzstyle{every circle}=[fill=white,fill opacity=.85,draw=black,text=black,text opacity=1]");
 
 
-                    bw.println("\\node[circle] (0) {0};");
+                bw.println("\\node[circle] (0) {0};");
+                pointsAtHeight.add(new ArrayList<Integer>());
+                for (int i = 1; i < nNodes; i++) {
                     pointsAtHeight.add(new ArrayList<Integer>());
-                    for (int i = 1; i < nNodes; i++) {
-                        pointsAtHeight.add(new ArrayList<Integer>());
-                        if (i % width == 0) {
-                            bw.println("\\node[circle] (" + i + ") [below of=" + (i - width) + "]{" + i + "};");
-                        } else
-                            bw.println("\\node[circle] (" + i + ") [right of=" + (i - 1) + "]{" + i + "};");
-                    }
-
-                    bw.println("\\begin{pgfonlayer}{myback}");
-                    int cnt = 0;
-                    for (Object obj : tours) {
-                        JSONArray arr = ((JSONArray) obj);
-                        bw.println("\\path[draw=" + colors[cnt] + ",thick,solid]");
-                        for (int i = 0; i < arr.size() - 1; i++) {
-                            int y = Math.floorDiv((Integer.parseInt(arr.get(i).toString())), width);
-                            if (contains(pointsAtHeight.get(y), Integer.parseInt(arr.get(i).toString()), Integer.parseInt(arr.get(i + 1).toString()))) {
-                                bw.format("(%d) edge [bend right=20] node {} (%d)%n", arr.get(i), arr.get(i + 1));
-                            } else
-                                bw.format("(%d) edge node {} (%d)%n", arr.get(i), arr.get(i + 1));
-                            pointsAtHeight.get(y).add(Integer.parseInt(arr.get(i).toString()));
-                        }
-                        bw.println(";");
-                        cnt++;
-                    }
-                    bw.println("  \\end{pgfonlayer}\\end{tikzpicture}\n" +
-                            "}\n");
-                    bw.format("\\caption[drones503]{drones %d method %d vertices %d base %d }%n\\label{drones %d method %d vertices %d base %d}%n\\end{center}%n\\end{figure}%n%n", tours.size(), method, nNodes, base, tours.size(), method, nNodes, base);
-
-                    if (cntFigures % 35 == 0)
-                        bw.println("\\clearpage");
-                    cntFigures++;
+                    if (i % width == 0) {
+                        bw.println("\\node[circle] (" + i + ") [below of=" + (i - width) + "]{" + i + "};");
+                    } else
+                        bw.println("\\node[circle] (" + i + ") [right of=" + (i - 1) + "]{" + i + "};");
                 }
+
+                bw.println("\\begin{pgfonlayer}{myback}");
+                int cnt = 0;
+                for (Object obj : tours) {
+                    JSONArray arr = ((JSONArray) obj);
+                    bw.println("\\path[draw=" + colors[cnt] + ",thick,solid]");
+                    for (int i = 0; i < arr.size() - 1; i++) {
+                        int y = Math.floorDiv((Integer.parseInt(arr.get(i).toString())), width);
+                        if (contains(pointsAtHeight.get(y), Integer.parseInt(arr.get(i).toString()), Integer.parseInt(arr.get(i + 1).toString()))) {
+                            bw.format("(%d) edge [bend right=20] node {} (%d)%n", arr.get(i), arr.get(i + 1));
+                        } else
+                            bw.format("(%d) edge node {} (%d)%n", arr.get(i), arr.get(i + 1));
+                        pointsAtHeight.get(y).add(Integer.parseInt(arr.get(i).toString()));
+                    }
+                    bw.println(";");
+                    cnt++;
+                }
+                bw.println("  \\end{pgfonlayer}\\end{tikzpicture}\n" +
+                        "}\n");
+                bw.format("\\caption[drones503]{drones %d method %d vertices %d base %d }%n\\label{drones %d method %d vertices %d base %d}%n\\end{center}%n\\end{figure}%n%n", tours.size(), method, nNodes, base, tours.size(), method, nNodes, base);
+
+                if (cntFigures % 35 == 0)
+                    bw.println("\\clearpage");
+                cntFigures++;
             }
         }
+
+        System.out.println(getFilesSorted(dir).length);
         bw.println("\\end{document}");
 
         bw.close();
@@ -343,12 +344,29 @@ public class Utility {
         return false;
     }
 
+    public static MilpMethod getMethod(int method) {
+        MilpMethod m = null;
+        switch (method) {
+            case 0:
+                m = MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH;
+                break;
+            case 1:
+                m = MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH;
+                break;
+            case 2:
+                m = MilpMethod.MINIMIZE_MAXIMUMTOTAL_PATH_LENGTH;
+                break;
+
+        }
+        return m;
+        //(this.method == 1 ? MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH : method==2 ? MilpMethod.MINIMIZE_MAXIMUMTOTAL_PATH_LENGTH : MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH);
+    }
 
     public static void process(String inputFilename) throws Exception {
         ArrayList<ExecutionDetails> executions = readInputFile(inputFilename);
         MilpMethod m;
         for (ExecutionDetails ed : executions) {
-            m = (ed.getMethod() == 1 ? MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH : MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH);
+            m = getMethod(ed.getMethod());
             executeMilp(ed.getNubferOfNodes(), ed.getBase(), ed.getWidth(), ed.getNubferOfDrones(), m, ed.generateJsFileName());
         }
     }

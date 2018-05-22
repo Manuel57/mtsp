@@ -1,10 +1,6 @@
 package mipl;
 
 
-import java.io.*;
-import java.util.ArrayList;
-
-
 public class ExecutionDetails {
     private int base;
     private int nDrones;
@@ -36,7 +32,7 @@ public class ExecutionDetails {
      return this.nDrones;
     }
     public String generateJsFileName() {
-      MilpMethod method = (this.method == 1 ? MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH : MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH);
+        MilpMethod method = Utility.getMethod(this.method);
       return "js_" + this.nDrones + "_" + this.nPoints + "_" + this.width + "_" + this.base + "_" + method + ".js";
     }
     
