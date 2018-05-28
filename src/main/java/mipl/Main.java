@@ -10,14 +10,12 @@ public class Main {
 
         try {
             //Utility.process("input.txt");
-            Utility.executeMilp(24, 0, 6, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "new1.js");
+            calculateTours();  //  berechnen
 
-            // calculateTours();  //  berechnen
+            Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
 
-            //Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
-
-            // Utility.convertResultFilesToLatex("resultsTexNew.txt");
-            //Utility.convertJsToLatex("newone.txt"); // in latex zeichnen
+            Utility.convertResultFilesToLatex("resultsTexNew.txt");
+            Utility.convertJsToLatex("newone.txt"); // in latex zeichnen
 
 
 
@@ -121,22 +119,27 @@ public class Main {
 
 
     private static void calculateTours() {
-        //execute(12,0,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-      /*execute(12,4,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,5,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,6,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,9,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,0,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,4,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,8,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+     //   Utility.executeMilp(40,1,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+     //   Utility.executeMilp(40,2,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,3,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,8,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,19,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,9,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,11,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,16,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,18,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,0,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+/*
+        Utility.executeMilp(40,1,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,2,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,3,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,8,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,9,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,11,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,17,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,18,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+        Utility.executeMilp(40,0,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH); */
 
-
-
-
-        execute(14,0,7,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-
-      execute(14,4,7,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-      */
         // execute(14, 8, 7, 2, MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
         //execute(15,0,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
         //execute(15,2,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
