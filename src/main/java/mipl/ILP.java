@@ -108,6 +108,10 @@ public class ILP {
     public ILP(int nDrones, int startPoint, ArrayList<Integer> gridPoints, double[][] t_ij, String log, int mnopg, String resultFilename, MilpMethod method) throws GRBException {
         this.env = new GRBEnv(log);
         // this.env.set(GRB.DoubleParam.TimeLimit, DEFAULT_TIMEOUT);
+        env.set(GRB.IntParam.NormAdjust, 2);
+        env.set(GRB.IntParam.Method, 1);
+        env.set(GRB.IntParam.Sifting, 2);
+        env.set(GRB.IntParam.Threads, 2);
         // this.env.set(GRB.DoubleParam.MIPGap,2);
         this.model = new GRBModel(this.env);
         this.nDrones = nDrones;
@@ -146,13 +150,15 @@ public class ILP {
                 break;
         }
 
-        //this.addSubtourConstraints();
 
         this.addIngoingConstraint();
         this.addOutgoingConstraint();
         this.addInOutEqualityConstraing();
 
         this.addStartConstraint();
+        this.addEndConstraint();
+
+        this.addSubtourConstraints();
         this.addSubtourEliminationConstraint();
         model.update();
 
@@ -176,6 +182,17 @@ public class ILP {
         }
 
 
+    }
+
+    private void addEndConstraint() throws GRBException {
+        GRBLinExpr expr;
+        for (int k = 0; k < nDrones; k++) {
+            expr = new GRBLinExpr();
+            for (Integer i : this.gridWithoutBase)
+                expr.addTerm(1, this.x_ijk[i][this.base][k]);
+
+            model.addConstr(expr, GRB.EQUAL, 1, "endDepot" + k);
+        }
     }
 
     private void setObjective2() throws GRBException {
@@ -263,10 +280,10 @@ public class ILP {
         GRBLinExpr[] expr3 = new GRBLinExpr[nDrones];
         int i, j, l;
 
-        for (int ci = 0; ci < nGridPoints - 1; ci++) {
+        for (int ci = 0; ci < this.nGridPoints - 1; ci++) {
             i = gridWithoutBase.get(ci);
 
-            for (int cj = ci + 1; cj < nGridPoints - 1; cj++) {
+            for (int cj = ci + 1; cj < this.nGridPoints - 1; cj++) {
                 j = gridWithoutBase.get(cj);
                 for (int k = 0; k < nDrones; k++) {
                     expr2[k] = new GRBLinExpr();
@@ -275,7 +292,7 @@ public class ILP {
                     model.addConstr(expr2[k], GRB.LESS_EQUAL, 1, "subl2_" + i + "_" + j + "_" + k);
                 }
 
-                for (int cl = cj + 1; cl < nGridPoints - 1; cl++) {
+                for (int cl = cj + 1; cl < this.nGridPoints - 1; cl++) {
                     l = gridWithoutBase.get(cl);
                     for (int k = 0; k < nDrones; k++) {
                         expr3[k] = new GRBLinExpr();
