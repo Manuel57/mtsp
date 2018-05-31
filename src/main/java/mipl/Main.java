@@ -1,25 +1,51 @@
 package mipl;
 
+import java.util.Scanner;
+
 /**
  * Main class
  *
  * @author Manuel Lackenbucher
  **/
 public class Main {
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        Utility.initLog("log.log");
         try {
-            //Utility.process("input.txt");
-            Utility.executeMilp(24, 0, 6, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "new1.js");
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        //Utility.process("input.txt");
+                        //Utility.executeMilp(60, 0, 3, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "text.js");
+                        //calculateTours();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            t1.start();
+            Thread t2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Scanner scanner = new Scanner(System.in);
+                    while (t1.isAlive()) {
+                        int in = scanner.nextInt();
+                        if (in == 0) {
+                            Utility.stopCurrent();
+                        }
+                    }
+                }
+            });
+            t2.start();
+            // Utility.executeMilp(6, 0, 3, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "text.js");
 
             // calculateTours();  //  berechnen
 
-            //Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
+            //Utility.convertResultFilesToCSV("results3.csv");  // dateien in tabelle zusammenfassen
 
             // Utility.convertResultFilesToLatex("resultsTexNew.txt");
             //Utility.convertJsToLatex("newone.txt"); // in latex zeichnen
-
-
 
 
             // !!!!!! NACHFOLGENDES EINFACH IGNORIEREN !!!!!!!!
@@ -34,14 +60,10 @@ public class Main {
 
             //nPoints,nDrones,base,width,method . . .
 
+            /*
+            PrintWriter pw = new PrintWriter("next.txt");
 
-
-
-
-/*
-            PrintWriter pw = new PrintWriter("in.txt");
-
-            try (BufferedReader br = new BufferedReader(new FileReader("readme.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("resultGood2.txt"))) {
                 String line = "";
                 br.readLine();
                 while ((line = br.readLine()) != null) {
@@ -53,16 +75,16 @@ public class Main {
                         int base = Integer.parseInt(vals[2]);
                         int width = Integer.parseInt(vals[0].split("x")[1]);
                         int method = Integer.parseInt(vals[3]);
-                        if (method == 0)
-                            pw.println(String.format("%d,%d,%d,%d,%d", nPoints, nDrones, base, width, method));
+                        if (method == 1)
+                            pw.println(String.format("%d,%d,%d,%d,%d", nPoints, nDrones, base, width, 0));
                     }
                 }
             }
 
-            pw.close();*/
-
-
-            /*PrintWriter pw = new PrintWriter("resultGood.txt");
+            pw.close();
+*/
+/*
+            PrintWriter pw = new PrintWriter("resultGood2.txt");
             try (BufferedReader br = new BufferedReader(new FileReader("results.csv"))) {
                 String line = "";
                 br.readLine();
@@ -117,66 +139,6 @@ public class Main {
             e.printStackTrace();
         }
 
-    }
-
-
-    private static void calculateTours() {
-        //execute(12,0,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-      /*execute(12,4,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,5,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,6,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,9,3,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,0,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,4,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(12,8,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-
-
-
-
-        execute(14,0,7,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-
-      execute(14,4,7,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-      */
-        // execute(14, 8, 7, 2, MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(15,0,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(15,2,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(15,4,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        // execute(15,6,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(15,10,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        // execute(15,14,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(15,3,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //  execute(16,0,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        // execute(16,2,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(16,3,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //execute(16,6,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        // execute(16,7,4,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        //------------------------------------------------------
-
-        //---------------------- TODO ---------------------------
-       /* execute(16,0,8,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(16,6,8,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(16,7,8,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(16,15,8,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-
-        execute(20,0,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,2,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,3,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,12,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,13,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,7,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,5,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,19,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,16,5,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-
-        execute(20,0,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,2,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,3,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,12,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,13,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,7,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,5,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,19,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        execute(20,16,5,3,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);*/
     }
 
 }
