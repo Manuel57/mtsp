@@ -1,5 +1,12 @@
 package mipl;
 
+import org.json.simple.parser.ParseException;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
 /**
  * Main class
  *
@@ -7,16 +14,58 @@ package mipl;
  **/
 public class Main {
     public static void main(String[] args) {
-
+        Utility.initLog("log.log");
         try {
-            //Utility.process("input.txt");
-            calculateTours();  //  berechnen
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                      //  Utility.process("input.txt");
+                        // Utility.executeMilp(60, 0, 3, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "text1.js");
+                       // Utility.executeMilp(60, 1, 3, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "text1.js");
+                        //Utility.executeMilp(60, 2, 3, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "text1.js");
+                        calculateTours();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            t1.start();
+            Thread t2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    Scanner scanner = new Scanner(System.in);
+                    while (t1.isAlive()) {
+                        int in = scanner.nextInt();
+                        if (in == 0) {
+                            Utility.stopCurrent();
 
-            Utility.convertResultFilesToCSV("results.csv");  // dateien in tabelle zusammenfassen
+                        }
+                    }
+                }
+            });
+            t2.start();
+            // Utility.executeMilp(6, 0, 3, 2, MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH, "text.js");
 
-            Utility.convertResultFilesToLatex("resultsTexNew.txt");
-            Utility.convertJsToLatex("newone.txt"); // in latex zeichnen
+            //calculateTours();  //  berechnen
 
+           // Utility.convertResultFilesToCSV("results3.csv");  // dateien in tabelle zusammenfassen
+
+          //  Utility.convertResultFilesToLatex("resultsTexNew.txt");
+          //  Utility.convertJsToLatex("newone.txt"); // in latex zeichnen
+
+
+            // !!!!!! NACHFOLGENDES EINFACH IGNORIEREN !!!!!!!!
+
+
+            //2x4;4;0;1;[[0,3,0],[0,5,4,0],[0,7,0],[0,2,6,1,0]]
+
+            //3x4|3|4|0|[4,0,1,5,4],[4,8,4],[4,6,2,3,7,11,10,9,4]
+
+            //grid size	number of drones	base station	method	tours
+
+
+//nPoints,nDrones,base,width,method . . .
 
 
 
@@ -118,17 +167,38 @@ public class Main {
     }
 
 
-    private static void calculateTours() {
-     //   Utility.executeMilp(40,1,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-     //   Utility.executeMilp(40,2,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,3,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,8,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,19,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,9,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,11,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,16,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,18,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
-        Utility.executeMilp(40,0,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+    private static void calculateTours() throws IOException, ParseException {
+        Utility.executeMilp(20,2,5,2,MilpMethod.MINIMIZE_TOTAL_PATH_LENGTH);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Utility.convertJsToLatex("results.tex");
+        String command="pdflatex.exe -synctex=1 -interaction=nonstopmode results.tex";
+        try {
+            Process process = Runtime.getRuntime().exec(command);
+            System.out.println("the output stream is "+process.getOutputStream());
+            BufferedReader reader=new BufferedReader( new InputStreamReader(process.getInputStream()));
+            String s;
+            while ((s = reader.readLine()) != null){
+                System.out.println("The inout stream is " + s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //Utility.executeMilp(49,2,7,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
+
+
 /*
         Utility.executeMilp(40,1,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);
         Utility.executeMilp(40,2,8,2,MilpMethod.MINIMIZE_MAXIMUM_PATH_LENGTH);

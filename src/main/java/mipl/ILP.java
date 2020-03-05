@@ -473,6 +473,11 @@ public class ILP {
         }
     }
 
+    public void stop() {
+        if (this.model != null)
+            this.model.terminate();
+    }
+
     class Point {
         public int j;
         public int i;

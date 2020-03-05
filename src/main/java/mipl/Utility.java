@@ -8,10 +8,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 
 public class Utility {
 
+    private static Logger LOG = Logger.getLogger("Utility");
+    private static ILP CURRENT_ILP = null;
 
     private static JSONObject readTours(File file) throws IOException, ParseException {
         JSONObject o = null;
@@ -110,7 +116,7 @@ public class Utility {
 
 
     public static void convertResultFilesToLatex(String fileName) throws IOException, ParseException {
-        File dir = new File("./files");
+        File dir = new File("./newFiles");
         PrintWriter bw = new PrintWriter(new FileWriter(fileName));
         bw.println("\\documentclass{article}\n" +
                 "\n" +
@@ -179,7 +185,7 @@ public class Utility {
 
     public static void convertJsToLatex(String filename) throws IOException, ParseException {
         String[] colors = new String[]{"blue", "red", "green", "orange", "yellow"};
-        File dir = new File("./files");
+        File dir = new File("./newFiles");
         PrintWriter bw = new PrintWriter(new FileWriter(filename));
         bw.println("\\documentclass{article}\n" +
                 "\n" +
@@ -311,6 +317,7 @@ public class Utility {
         try {
             System.out.println((int) Math.ceil((double) node / nDrones));
             ILP ilp = new ILP(nDrones, base, grid, t_ij, "ilp.log", (int) Math.ceil((double) node / nDrones), "result.lp", method);
+            CURRENT_ILP = ilp;
             ilp.solveILP();
             ilp.setResult();
             ilp.printResult(width);
@@ -320,11 +327,13 @@ public class Utility {
             ilp.dispose();
         } catch (Exception e) {
             e.printStackTrace();
+            LOG.log(Level.INFO, jsFilename);
+
         }
     }
 
     public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method) {
-        execute(node, base, width, nDrones, method, "js_" + nDrones + "_" + node + "_" + width + "_" + base + "_" + method + ".js");
+        execute(node, base, width, nDrones, method, "newFiles/js_" + nDrones + "_" + node + "_" + width + "_" + base + "_" + method + ".js");
     }
 
     public static void executeMilp(int node, int base, int width, int nDrones, MilpMethod method, String jsFilename) {
@@ -394,5 +403,28 @@ public class Utility {
             }
         }
         return executions;
+    }
+
+    public static void initLog(String s) {
+        FileHandler fh;
+
+        try {
+
+            // This block configure the logger with handler and formatter
+            fh = new FileHandler(s);
+            LOG.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+
+        } catch (SecurityException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void stopCurrent() {
+        if (CURRENT_ILP != null)
+            CURRENT_ILP.stop();
     }
 }
